@@ -1,0 +1,11 @@
+<ul class="feed-toggle-links">
+  <li class="feed-link" *ngIf="currentUser$ | async">
+    <a [routerLink]="'/feed'" class="feed-link-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">For You</a>
+  </li>
+  <li class="feed-link">
+    <a [routerLink]="'/blog'" class="feed-link-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" [queryParamsHandling]="'merge'">All Posts</a>
+  </li>
+  <li class="feed-link" *ngIf="tagName">
+    <a [routerLink]="['/tags', tagName]" class="feed-link-item" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"><i class="bi bi-hash"></i>{{tagName}}</a>
+  </li>
+</ul>
