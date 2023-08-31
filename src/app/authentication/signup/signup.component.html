@@ -1,0 +1,53 @@
+<div class="auth_wrapper" id="signup_wrapper" *ngIf="data$ | async as data">
+  <errormsg *ngIf="data.backendErrors" [backendErrors]="data.backendErrors"></errormsg>
+  <div class="formBox">
+    <form [formGroup]="signUpForm" (ngSubmit)="submitForm()">
+      <h2>Signup</h2>
+
+      <div class="input-box">
+        <input type="text" class="form-input" formControlName="username" id="username" placeholder="" [ngClass]="{error : getControl('username')?.errors && getControl('username')?.touched}">
+        <label class="input-label">Name</label>
+        <div *ngIf="getControl('username')?.errors && getControl('username')?.touched">
+          <small class="errorMsg" *ngIf="getControl('username')?.errors?.['required']">Your username is required</small>
+        </div>
+      </div>
+      <div class="input-box">
+        <input type="text" class="form-input" formControlName="email" id="email" placeholder="" [ngClass]="{error : getControl('email')?.errors && getControl('email')?.touched}">
+        <label class="input-label">Email</label>
+        <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
+          <small class="errorMsg" *ngIf="getControl('email')?.errors?.['required']">Email field is required</small>
+          <small class="text-danger" *ngIf="getControl('email')?.errors?.['maxlength']">Email should be maximum 32 characters long.</small>
+          <small class="errorMsg" *ngIf="getControl('email')?.errors?.['pattern']">Please enter a valid email.</small>
+        </div>
+      </div>
+      <div class="input-box">
+        <input [type]="showPassword ? 'text':'password'" class="form-input" formControlName="password" id="password" placeholder="" [ngClass]="{error : getControl('password')?.errors && getControl('password')?.touched}">
+        <label class="input-label">Password</label>
+        <i class="bi bi-eye" (click)="toggleShow()" *ngIf="!showPassword"></i>
+        <i class="bi bi-eye-slash" (click)="toggleShow()" *ngIf="showPassword"></i>
+        <div *ngIf="getControl('password')?.errors && getControl('password')?.touched">
+          <small class="errorMsg" *ngIf="getControl('password')?.errors?.['required']">Password is required</small>
+          <small class="errorMsg" *ngIf="getControl('password')?.errors?.['minlength']">Password must be at least 8 characters long.</small>
+        </div>
+      </div>
+      <div class="input-box">
+        <input [type]="showPassword ? 'text':'password'" class="form-input" formControlName="confirmPassword" id="confirmPassword" placeholder="" [ngClass]="{error : getControl('confirmPassword')?.errors && getControl('confirmPassword')?.touched}">
+        <label class="input-label">Confirm Password</label>
+        <div *ngIf="getControl('confirmPassword')?.errors && getControl('confirmPassword')?.touched">
+          <small class="errorMsg" *ngIf="getControl('confirmPassword')?.errors?.['required']">Please confirm your password</small>
+          <small class="errorMsg" *ngIf="getControl('confirmPassword')?.errors?.['PasswordMatch']">Passwords do not match</small>
+        </div>
+      </div>
+
+      <button class="btn ripple-effect" [disabled]="signUpForm.status === 'INVALID'" >Signup</button>
+      <div class="signup">
+        <p>Already have an account? <a routerLink="/login">here</a></p>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+
+

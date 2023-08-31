@@ -1,0 +1,148 @@
+import {act, Actions, createEffect, ofType} from "@ngrx/effects";
+import {inject} from "@angular/core";
+import {AuthService} from "../services/auth.service";
+import {authActions} from "./auth.actions";
+import {CurrentUserInterface} from "../../shared/types/currentuser.interface";
+import {catchError, map, of, switchMap, tap} from "rxjs";
+import {HttpErrorResponse} from "@angular/common/http";
+import {PersistenceService} from "../../shared/services/persistence.service";
+import {Router} from "@angular/router";
+
+
+// Get getCurrentUser Effect
+export const getCurrentUserEffect = createEffect((
+  actions$ = inject(Actions),
+  authService  = inject(AuthService),
+  persistenceService = inject(PersistenceService)) => {
+  return actions$.pipe(
+    ofType(authActions.getCurrentUser),
+    switchMap(() => {
+      const token = persistenceService.get('accessToken')
+      if (!token) {
+        return of(authActions.getCurrentUserFailure)
+      }
+      return authService.getCurrentUser().pipe(
+        map((currentUser: CurrentUserInterface) => {
+          return authActions.getCurrentUserSuccess({currentUser})
+        }),
+        catchError(() => {
+          return of(
+            authActions.getCurrentUserFailure()
+          )
+        })
+      )
+    })
+  )
+}, { functional: true})
+
+//Register Effect
+export const signupEffect = createEffect((
+  actions$ = inject(Actions),
+  authService  = inject(AuthService),
+  persistenceService = inject(PersistenceService)) => {
+  return actions$.pipe(
+    ofType(authActions.signup),
+    switchMap(({request}) => {
+      return authService.signup(request).pipe(
+        map((currentUser: CurrentUserInterface) => {
+          persistenceService.set('accessToken', currentUser.token)
+          return authActions.signupSuccess({currentUser})
+        }),
+        catchError((errorResponse: HttpErrorResponse) => {
+          return of(
+              authActions.signupFailure({
+                errors: errorResponse.error.errors
+              })
+          )
+        })
+      )
+  })
+  )
+}, { functional: true})
+
+export const redirectAfterSignupEffect = createEffect(
+  (actions$ = inject(Actions), router =  inject(Router)) => {
+    return actions$.pipe(
+      ofType(authActions.signupSuccess),
+      tap(() => {
+        router.navigateByUrl('/')
+      })
+    )
+},
+{ functional: true, dispatch: false }
+)
+
+
+//Login
+export const loginEffect = createEffect((
+  actions$ = inject(Actions),
+  authService  = inject(AuthService),
+  persistenceService = inject(PersistenceService)) => {
+  return actions$.pipe(
+    ofType(authActions.login),
+    switchMap(({request}) => {
+      return authService.login(request).pipe(
+        map((currentUser: CurrentUserInterface) => {
+          persistenceService.set('accessToken', currentUser.token)
+          return authActions.loginSuccess({currentUser})
+        }),
+        catchError((errorResponse: HttpErrorResponse) => {
+          return of(
+            authActions.loginFailure({
+              errors: errorResponse.error.errors
+            })
+          )
+        })
+      )
+    })
+  )
+}, { functional: true})
+
+export const redirectAfterLoginEffect = createEffect(
+  (actions$ = inject(Actions), router =  inject(Router)) => {
+    return actions$.pipe(
+      ofType(authActions.loginSuccess),
+      tap(() => {
+        router.navigateByUrl('/')
+      })
+    )
+  },
+  { functional: true, dispatch: false }
+)
+
+// UpdateCurrentUser Effect
+export const updateCurrentUserEffect = createEffect((
+  actions$ = inject(Actions),
+  authService  = inject(AuthService),) => {
+  return actions$.pipe(
+    ofType(authActions.updateCurrentUser),
+    switchMap(({currentUserRequest}) => {
+      return authService.updateCurrentUser(currentUserRequest).pipe(
+        map((currentUser: CurrentUserInterface) => {
+          return authActions.updateCurrentUserSuccess({currentUser})
+        }),
+        catchError((errorResponse: HttpErrorResponse) => {
+          return of(
+            authActions.updateCurrentUserFailure({errors: errorResponse.error.errors})
+          )
+        })
+      )
+    })
+  )
+}, { functional: true})
+
+// Logout
+export const logoutEffect = createEffect(
+  (actions$ = inject(Actions),
+  router = inject(Router),
+  persistenceService = inject(PersistenceService)) => {
+    return actions$.pipe(
+      ofType(authActions.logout),
+      tap(() => {
+        persistenceService.set('accessToken', '')
+        router.navigateByUrl('/')
+      })
+    )
+  },
+  {functional: true, dispatch: false}
+)

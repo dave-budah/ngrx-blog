@@ -1,0 +1,41 @@
+<div class="editor-page my-5">
+  <div class="container">
+    <div class="col-md-10 mx-auto">
+      <errormsg *ngIf="errors" [backendErrors]="errors"></errormsg>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-2 article-form">
+          <h3 class="text-center my-4">Write your article</h3>
+<!--        <div class="mb-3">-->
+<!--            <input type="file" id="actual-btn" accept="image/*" formControlName="thumbnail" (change)="onFileSelected($event)" hidden/>-->
+<!--            <label for="actual-btn" id="file-label">Choose File</label>-->
+<!--            <span id="file-chosen">No file chosen</span>-->
+<!--        </div>-->
+
+<!--          <div class="my-2">-->
+<!--            <img [src]="preview" class="preview" *ngIf="preview" alt="preview">-->
+<!--          </div>-->
+<!--        File Upload ends here -->
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" formControlName="title" placeholder="title">
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Description</label>
+          <input type="text" class="form-control" id="description" formControlName="description" placeholder="description">
+        </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Content</label>
+          <textarea class="form-control" id="content" rows="8" formControlName="body"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="taglist" class="form-label">Tags</label>
+          <input type="text" class="form-control" id="taglist" formControlName="tagList" placeholder="tags">
+        </div>
+
+        <div class="mb-3">
+        <button class="btn" [disabled]="form.invalid || isSubmitting">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

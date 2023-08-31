@@ -1,0 +1,47 @@
+<ng-container *ngIf="data$ | async as data; else noData">
+  <loading *ngIf="data.isLoading"></loading>
+  <errormessage *ngIf="data.error" [message]="data.error">{{ data.error }}</errormessage>
+
+  <ng-container *ngIf="data.feed">
+      <div class="blog-nugget p-2" *ngFor="let article of data.feed.articles">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="thumbnail">
+              <img src="assets/images/no-photo.jpg" alt="thumbnail">
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="detail">
+              <div class="author-detail">
+                <a [routerLink]="['/profiles', article.author.username]" class="avatar-container">
+                  <img [src]="article.author.image ? article.author.image : 'assets/images/avatar.png'"  alt="{{ article.author.username }}">
+                </a>
+                <a href="" class="author-name">{{ article.author.username }}</a>
+              </div>
+              <span class="spacer"></span>
+              <a href="" class="category">Trending</a>
+              <span class="spacer"></span>
+              <span class="date">{{ article.createdAt | date: 'dd MMM YYYY' }}</span>
+            </div>
+            <a [routerLink]="['/articles', article.slug]">
+              <h4 class="my-4">{{ article.title }}</h4>
+            </a>
+            <p class="my-2">{{ article.description | truncate: 150 }}</p>
+            <div class="tags mt-4 mb-2">
+              <taglist [tags]="article.tagList"></taglist>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--    Pagination-->
+    <pagination [total]="data.feed.articlesCount" [limit]="limit" [url]="baseUrl" [currentPage]="currentPage"></pagination>
+
+  </ng-container>
+</ng-container>
+<ng-template #noData>
+  <div class="my-4 text-center col-md-10 mx-auto">
+    <h3>No data available yet.</h3>
+  </div>
+</ng-template>
+
+

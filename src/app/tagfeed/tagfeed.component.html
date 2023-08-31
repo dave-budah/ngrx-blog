@@ -1,0 +1,15 @@
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-9">
+<!--      Feed toggler component-->
+      <feedtoggler [tagName]="tagName"></feedtoggler>
+<!--      List of articles from feed components-->
+      <feed [apiUrl]="apiUrl"></feed>
+
+    </div>
+    <div class="col-md-3">
+        <populartags></populartags>
+    </div>
+  </div>
+</div>
