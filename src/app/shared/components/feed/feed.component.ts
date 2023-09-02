@@ -20,13 +20,14 @@ import {PaginationComponent} from "../pagination/pagination.component";
 import {environment} from "../../../../environments/environment";
 import queryString from 'query-string'
 import {TaglistComponent} from "../taglist/taglist.component";
+import {ReactionsComponent} from "../reactions/reactions.component";
 
 
 
 @Component({
   selector: 'feed',
   standalone: true,
-  imports: [CommonModule, RouterLink, TruncatePipe, LoadingComponent, ErrormessageComponent, PaginationComponent, TaglistComponent],
+  imports: [CommonModule, RouterLink, TruncatePipe, LoadingComponent, ErrormessageComponent, PaginationComponent, TaglistComponent, ReactionsComponent],
   templateUrl: './feed.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None

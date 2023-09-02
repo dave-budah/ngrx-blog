@@ -2,22 +2,26 @@
   <div class="container">
     <div class="col-md-10 mx-auto" *ngIf="currentUser">
       <errormsg *ngIf="data.backendErrors" [backendErrors]="data.backendErrors"></errormsg>
-      <div class="banner">
-        <div class="user-info col-md-6 mx-auto text-center">
-          <div class="row">
-            <div class="col-6">
-              <div class="avatar">
-                <img src="assets/images/avatar.png" alt="avatar">
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="action-btns pt-2">
-                <button class="follow-btn px-3 px-lg-5 py-2 mx-1">Follow</button>
-                <button class="follow-btn bg-danger px-3 px-lg-5 py-2 mx-1" (click)="logout()">Logout</button>
-              </div>
-            </div>
+      <div class="profile-header">
+        <!-- BEGIN profile-header-cover -->
+        <div class="profile-header-cover"></div>
+        <!-- END profile-header-cover -->
+        <!-- BEGIN profile-header-content -->
+        <div class="profile-header-content">
+          <!-- BEGIN profile-header-img -->
+          <div class="profile-header-img bg-transparent">
+            <img [src]="'assets/images/avatar.png'" alt="profile image">
           </div>
+          <!-- END profile-header-img -->
+          <!-- BEGIN profile-header-info -->
+          <div class="profile-header-info">
+            <h4 class="mt-10">Update your profile</h4>
+            <p class="mb-10 text-white fw-light">Leave the password empty if you want to keep the old password.</p>
+            <a class="btn btn-sm btn-info mb-2" (click)="logout()">Logout</a>
+          </div>
+          <!-- END profile-header-info -->
         </div>
+        <!-- END profile-header-content -->
       </div>
 
       <div class="col-md-6 mx-auto my-5">

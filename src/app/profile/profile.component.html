@@ -1,0 +1,57 @@
+<ng-container *ngIf="data$ | async as data">
+  <div class="container" *ngIf="data.profile">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="content" class="content content-full-width">
+          <!-- begin profile -->
+          <div class="profile">
+            <div class="profile-header">
+              <!-- BEGIN profile-header-cover -->
+              <div class="profile-header-cover"></div>
+              <!-- END profile-header-cover -->
+              <!-- BEGIN profile-header-content -->
+              <div class="profile-header-content">
+                <!-- BEGIN profile-header-img -->
+                <div class="profile-header-img">
+                  <img [src]="data.profile.image" alt="profile image">
+                </div>
+                <!-- END profile-header-img -->
+                <!-- BEGIN profile-header-info -->
+                <div class="profile-header-info">
+                  <h4 class="mt-10">{{ data.profile.username}}</h4>
+                  <p class="mb-10 text-white fw-light">{{ data.profile.bio}}</p>
+                  <a [routerLink]="'/settings'" class="btn btn-sm btn-info mb-2" *ngIf="data.isCurrentUser">Edit Profile</a>
+                </div>
+                <!-- END profile-header-info -->
+              </div>
+              <!-- END profile-header-content -->
+              <!-- BEGIN profile-header-tab -->
+              <ul class="profile-header-tab nav nav-tabs">
+                <li class="nav-item"><a [routerLink]="['/profiles', data.profile.username]" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" class="nav-link_">MY POSTS</a></li>
+                <li class="nav-item"><a [routerLink]="['/profiles', data.profile.username, 'favorites']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}" class="nav-link_">LIKED POSTS</a></li>
+                <li class="nav-item"><a href="https://www.bootdey.com/snippets/view/profile-photos" target="__blank" class="nav-link_">PHOTOS</a></li>
+              </ul>
+              <!-- END profile-header-tab -->
+            </div>
+          </div>
+          <!-- end profile -->
+          <!-- begin profile-content -->
+          <div class="profile-content">
+            <!-- begin tab-content -->
+            <div class="tab-content p-0">
+              <!-- begin #profile-post tab -->
+              <div class="tab-pane fade active show" id="profile-post">
+
+                <feed [apiUrl]="getApiUrl()"></feed>
+
+              </div>
+              <!-- end #profile-post tab -->
+            </div>
+            <!-- end tab-content -->
+          </div>
+          <!-- end profile-content -->
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

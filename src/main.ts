@@ -10,11 +10,13 @@ import {provideHttpClient, withInterceptors} from "@angular/common/http";
 import * as authEffects from "./app/authentication/store/auth.effects";
 import * as feedEffects from "./app/shared/components/feed/store/feed.effects";
 import * as popularTagsEffects from "./app/shared/components/populartgs/store/populartags.effects";
+import * as addToFavoritesEffects from "./app/shared/components/reactions/store/reactions.effects";
 import {provideEffects} from "@ngrx/effects";
 import {provideRouterStore, routerReducer} from "@ngrx/router-store";
 import {authInterceptor} from "./app/shared/interceptors/auth.interceptor";
 import {feedFeatureKey, feedReducer} from "./app/shared/components/feed/store/feed.reducers";
 import {popularTagsFeatureKey, popularTagsReducer} from "./app/shared/components/populartgs/store/populartags.reducers";
+import {AddtofavoriteService} from "./app/shared/components/reactions/services/addtofavorite.service";
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -24,12 +26,13 @@ bootstrapApplication(AppComponent, {
       router: routerReducer
     }),
     provideRouterStore(),
-    provideEffects(authEffects, feedEffects, popularTagsEffects),
+    provideEffects(authEffects, feedEffects, popularTagsEffects, addToFavoritesEffects),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode(),
       autoPause: true,
       trace: false,
       traceLimit: 75
     }),
+    AddtofavoriteService,
     provideState(authFeatureKey, authReducer),
     provideState(feedFeatureKey, feedReducer),
     provideState(popularTagsFeatureKey, popularTagsReducer),

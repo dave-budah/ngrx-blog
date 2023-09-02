@@ -2,6 +2,10 @@ import {Route} from "@angular/router";
 
 export const appRoutes: Route[] = [
   {
+    path: '',
+    loadChildren: () => import('src/app/home/home.routes').then(m => m.routes)
+  },
+  {
     path: 'signup',
     loadChildren: () => import('src/app/authentication/types/auth.routes').then(m => m.signupRoutes)
   },
@@ -36,5 +40,13 @@ export const appRoutes: Route[] = [
   {
     path: 'settings',
     loadChildren: () => import('src/app/settings/settings.routes').then(m => m.routes)
+  },
+  {
+    path: 'profiles/:slug',
+    loadChildren: () => import('src/app/profile/profile.routes').then(m => m.routes)
+  },
+  {
+    path: 'profiles/:slug/favorites',
+    loadChildren: () => import('src/app/profile/profile.routes').then(m => m.routes)
   }
 ]

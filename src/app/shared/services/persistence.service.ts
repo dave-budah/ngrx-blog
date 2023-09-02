@@ -17,7 +17,6 @@ export class PersistenceService {
         const localStorageItem = localStorage.getItem(key);
         return localStorageItem ? JSON.parse(localStorageItem) : null;
     } catch (e) {
-        console.error('Error getting token from localStorage', e)
       return null;
     }
   }

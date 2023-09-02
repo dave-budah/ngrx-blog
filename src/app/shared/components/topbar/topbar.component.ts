@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Router, RouterLink} from "@angular/router";
+import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {combineLatest} from "rxjs";
 import {selectCurrentUser} from "../../../authentication/store/auth.reducers";
@@ -8,7 +8,7 @@ import {selectCurrentUser} from "../../../authentication/store/auth.reducers";
 @Component({
   selector: 'topbar',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, RouterLinkActive],
   templateUrl: './topbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
