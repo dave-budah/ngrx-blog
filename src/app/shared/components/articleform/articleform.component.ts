@@ -10,14 +10,17 @@ import {
 import {CommonModule} from '@angular/common';
 import {ArticleFormValuesInterface} from "./types/articleformvalues.interface";
 import {BackendErrorsInterface} from "../../types/backenderrors.interface";
-import {FormBuilder, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ErrormsgComponent} from "../errormsg/errormsg.component";
+import {NgxSummernoteModule} from "ngx-summernote";
+import {AngularEditorConfig, AngularEditorModule} from "@kolkov/angular-editor";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @Component({
   selector: 'articleform',
   standalone: true,
-  imports: [CommonModule, ErrormsgComponent, ReactiveFormsModule],
+  imports: [CommonModule, ErrormsgComponent, ReactiveFormsModule, AngularEditorModule, HttpClientModule],
   templateUrl: './articleform.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -28,16 +31,30 @@ export class ArticleformComponent implements OnInit{
   @Input() errors: BackendErrorsInterface | null = null
   @Output() articleSubmit = new EventEmitter<ArticleFormValuesInterface>()
 
-
   preview: string | undefined;
 
   form = this._formBuilder.nonNullable.group({
-    title: '',
-    description: '',
-    body: '',
+    title: ['', [Validators.required]],
+    description: ['', [Validators.required]],
+    body: ['', [Validators.required]],
     tagList: '',
     // thumbnail: '',
   })
+
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    outline: false,
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    toolbarHiddenButtons: [
+      ['insertVideo']
+    ]
+  };
   constructor(private _formBuilder: FormBuilder) {
   }
 

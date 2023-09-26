@@ -5,6 +5,7 @@ import {TopbarComponent} from "./shared/components/topbar/topbar.component";
 import {authActions} from "./authentication/store/auth.actions";
 import {Store} from "@ngrx/store";
 import {TruncatePipe} from "./shared/types/truncate.pipe";
+import {FooterComponent} from "./shared/components/footer/footer.component";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import {TruncatePipe} from "./shared/types/truncate.pipe";
   changeDetection: ChangeDetectionStrategy.OnPush,
 
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NgOptimizedImage, TopbarComponent],
+  imports: [RouterOutlet, RouterLink, NgOptimizedImage, TopbarComponent, FooterComponent],
 
 })
 export class AppComponent implements OnInit {

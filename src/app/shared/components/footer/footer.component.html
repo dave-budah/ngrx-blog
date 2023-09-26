@@ -1,0 +1,28 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <h2 class="footer-heading element hidden"><a [routerLink]="''" class="logo">Selvigtech</a></h2>
+        <p class="menu">
+          <a class="item hidden" [routerLink]="''">Home</a>
+          <a class="item hidden" [routerLink]="''">About</a>
+          <a class="item hidden" [routerLink]="'/blog'">Blog</a>
+          <a class="item hidden" [routerLink]="''">Projects</a>
+          <a class="item hidden" [routerLink]="''">Contact</a>
+        </p>
+        <ul class="footer-social p-0">
+          <li class="item hidden"><a [routerLink]="''" data-toggle="tooltip" data-placement="top" title="Twitter"><img
+            src="assets/images/logos/x.png" alt=""></a></li>
+          <li class="item hidden"><a [routerLink]="''" data-toggle="tooltip" data-placement="top" title="Facebook"><span class="bi bi-facebook"></span></a></li>
+          <li class="item hidden"><a [routerLink]="''" data-toggle="tooltip" data-placement="top" title="Instagram"><span class="bi bi-linkedin"></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12 text-center">
+        <p class="copyright">
+          Copyright &copy;{{ currentYear }} All rights reserved
+      </div>
+    </div>
+  </div>
+</footer>

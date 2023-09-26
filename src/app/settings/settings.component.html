@@ -1,5 +1,5 @@
 <ng-container *ngIf="data$ | async as data">
-  <div class="container">
+  <div class="container mt-8">
     <div class="col-md-10 mx-auto" *ngIf="currentUser">
       <errormsg *ngIf="data.backendErrors" [backendErrors]="data.backendErrors"></errormsg>
       <div class="profile-header">

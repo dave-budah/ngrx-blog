@@ -17,23 +17,22 @@
 <!--        File Upload ends here -->
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" formControlName="title" placeholder="title">
+          <input type="text" class="form-control" id="title" formControlName="title">
         </div>
         <div class="mb-3">
           <label for="title" class="form-label">Description</label>
-          <input type="text" class="form-control" id="description" formControlName="description" placeholder="description">
+          <input type="text" class="form-control" id="description" formControlName="description">
         </div>
         <div class="mb-3">
-          <label for="content" class="form-label">Content</label>
-          <textarea class="form-control" id="content" rows="8" formControlName="body"></textarea>
+          <angular-editor id="content" formControlName="body" [config]="config"></angular-editor>
         </div>
         <div class="mb-3">
           <label for="taglist" class="form-label">Tags</label>
-          <input type="text" class="form-control" id="taglist" formControlName="tagList" placeholder="tags">
+          <input type="text" class="form-control" id="taglist" formControlName="tagList">
         </div>
 
         <div class="mb-3">
-        <button class="btn" [disabled]="form.invalid || isSubmitting">Submit</button>
+        <button class="btn submit-btn" [disabled]="form.invalid || isSubmitting">Submit</button>
         </div>
       </form>
     </div>

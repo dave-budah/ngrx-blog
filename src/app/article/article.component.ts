@@ -10,11 +10,12 @@ import {CurrentUserInterface} from "../shared/types/currentuser.interface";
 import {LoadingComponent} from "../shared/components/loading/loading.component";
 import {ErrormessageComponent} from "../shared/components/errormessage/errormessage.component";
 import {TaglistComponent} from "../shared/components/taglist/taglist.component";
+import {StripTagsPipe} from "../shared/types/strip-tags.pipe";
 
 @Component({
   selector: 'article',
   standalone: true,
-  imports: [CommonModule, RouterLink, LoadingComponent, ErrormessageComponent, TaglistComponent],
+  imports: [CommonModule, RouterLink, LoadingComponent, ErrormessageComponent, TaglistComponent, StripTagsPipe],
   templateUrl: './article.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
