@@ -2,7 +2,7 @@
   <errormsg *ngIf="data.backendErrors" [backendErrors]="data.backendErrors"></errormsg>
   <div class="formBox">
     <form [formGroup]="signUpForm" (ngSubmit)="submitForm()">
-      <h2>Signup</h2>
+      <h2 class="mt-3">Signup</h2>
 
       <div class="input-box">
         <input type="text" class="form-input" formControlName="username" id="username" placeholder="" [ngClass]="{error : getControl('username')?.errors && getControl('username')?.touched}">
@@ -39,7 +39,7 @@
         </div>
       </div>
 
-      <button class="btn ripple-effect" [disabled]="signUpForm.status === 'INVALID'" >Signup</button>
+      <button class="btn ripple-effect px-5 mt-3" [disabled]="signUpForm.status === 'INVALID'" >Signup</button>
       <div class="signup">
         <p>Already have an account? <a routerLink="/login">here</a></p>
       </div>

@@ -88,6 +88,7 @@ button, .btn {
   color: #9bc9ff;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  font-size: 14px;
 }
 .btn:disabled:hover,
 button:disabled:hover {
@@ -107,8 +108,9 @@ main {
 .auth_wrapper {
   position: absolute;
   border: 1px solid var(--primary-color);
-  width: 400px;
-  height: 490px;
+  width: 100%;
+  max-width: 400px;
+  height: 460px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -116,7 +118,7 @@ main {
   border-radius: 10px;
 }
 #signup_wrapper {
-  height: 600px;
+  height: 460px;
 }
 #signup_wrapper form {
   position: relative;
@@ -148,7 +150,7 @@ main {
 .formBox .input-box {
   width: 340px;
   height: 44px;
-  margin: 35px 0;
+  margin: 25px 0;
   position: relative;
 }
 .input-box .form-input {
@@ -166,6 +168,7 @@ main {
   z-index: 1;
   padding: 1rem;
 }
+.contact-form .form-control.error,
 .input-box .form-input.error {
   border: 1px solid red;
 }
@@ -178,7 +181,7 @@ main {
   font-weight: 500;
   color: var(--primary-color);
   transition: .3s ease;
-  background: #f4f7fa;
+  background: #fff;
 }
 .input-box i {
   position: absolute;
@@ -251,6 +254,12 @@ main {
   bottom: -1.2rem;
   left: 0;
   color: red;
+  z-index: 11;
+}
+.contact-form .errorMsg {
+  font-size: 11px;
+  color: red;
+  z-index: 11;
 }
 /* AuthInterceptor styling ended here */
 nav .navbar-collapse .navbar-nav > li > a {
@@ -641,6 +650,9 @@ nav button.navbar-toggler {
 }
 /* Blog page */
 /* Editor Page */
+.editor-page {
+  margin-top: 5rem;
+}
 .editor-page label#file-label {
   background-color: var(--primary-color);
   color: white;
@@ -965,6 +977,42 @@ nav button.navbar-toggler {
 .about .description p {
   text-align: justify;
 }
+/* New about section design */
+.about-card {
+  min-height: 300px;
+  padding: 10px;
+  margin: 2rem auto;
+  box-shadow: none;
+}
+/* media styling */
+@media (width >= 768px) {
+  .about .col-lg-3:nth-child(even) {
+    margin-top: 3rem !important;
+  }
+}
+/* media styling */
+.about-card .card-img-top-icon {
+  margin: 2rem auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  background: #102d35;
+  display: grid;
+  place-content: center;
+}
+
+.about-card .card-header h3 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.about-card .card-img-top-icon i {
+  font-size: 2rem;
+  color: #fff;
+}
+.about-card .card-content {
+  padding: 1rem 0;
+}
 .why-us .image-box {
   width: 100%;
 }
@@ -974,7 +1022,7 @@ nav button.navbar-toggler {
   object-fit: cover;
 }
 .why-us-row {
-  margin-top: 4rem;
+  margin-top: 8rem;
 }
 .why-us-row .card {
   padding: 2rem 1rem;
@@ -982,13 +1030,14 @@ nav button.navbar-toggler {
   max-width: 340px;
   margin: 1rem auto;
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-  background-color: var(--secondary-color);
+  background-color: #fff;
   transition: .2ms linear, .2s linear;
   cursor: pointer;
+  border: 1px solid #102d35 !important;
 }
 .why-us-row .card h3,
 .why-us-row .card p {
-  color: #fff;
+  color: var(--secondary-color);
 }
 .why-us-row .card:hover {
   transform: scale(1.01);
@@ -1025,20 +1074,24 @@ nav button.navbar-toggler {
 }
 .projects-card {
   width: 100%;
-  height: 300px;
-  max-width: 300px;
-  border-radius: 25px;
+  height: 340px;
+  max-width: 520px;
+  border-radius: 15px;
+  padding: 20px;
   overflow: hidden;
   margin: 1rem auto;
+  position: relative;
+  border: 1px solid var(--primary-color) !important;
+  box-shadow: none;
 }
 .projects-card img {
   width: 100%;
-  height: 100%;
+  height: 250px;
 }
 
 /* footer */
 footer {
-  padding: 7em 0;
+  padding: 3em 0;
 }
 .footer-social li {
   list-style: none;
@@ -1170,8 +1223,15 @@ li a.contact-link i {
   outline: none;
   border: 1px solid var(--primary-color);
 }
-@media (width <= 768px) {
+.contact-form textarea::placeholder,
+.contact-form input::placeholder {
+  font-size: 12px !important;
+}
+@media (width <= 1200px) {
   .why-us-row .col-lg-4:nth-child(2) {
     margin-top: 0 !important;
+  }
+  .footer .menu a {
+    font-size: 11px !important;
   }
 }
