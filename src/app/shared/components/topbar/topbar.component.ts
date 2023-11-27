@@ -21,4 +21,9 @@ export class TopbarComponent {
   constructor(private store: Store, private router: Router) {
   }
 
+  ngOnInit(): void {
+
+  }
+
+  protected readonly console = console;
 }

@@ -3,5 +3,5 @@ export interface ArticleFormValuesInterface {
   description: string;
   body: string;
   tagList: string[];
-  //thumbnail: string;
+  image?: string;
 }

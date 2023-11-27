@@ -6,12 +6,12 @@
       <div class="blog-nugget p-2" *ngFor="let article of data.feed.articles">
         <div class="row">
           <div class="col-md-5">
-            <div class="thumbnail">
-              <img src="assets/images/no-photo.jpg" alt="thumbnail">
+            <div class="image">
+              <img src="{{ article.image }}" alt="thumbnail">
             </div>
           </div>
           <div class="col-md-7">
-            <div class="detail">
+            <div class="detail py-2">
               <div class="author-detail">
                 <a [routerLink]="['/profiles', article.author.username]" class="avatar-container">
                   <img [src]="article.author.image ? article.author.image : 'assets/images/avatar.png'"  alt="{{ article.author.username }}">
@@ -23,13 +23,13 @@
               <span class="spacer"></span>
               <reactions [isFavorited]="article.favorited" [articleSlug]="article.slug" [favoritesCount]="article.favoritesCount"></reactions>
             </div>
-            <a [routerLink]="['/articles', article.slug]">
-              <h4 class="my-4">{{ article.title }}</h4>
-            </a>
-            <p class="my-2">{{ article.description | truncate: 150 }}</p>
-            <div class="tags mt-4 mb-2">
-              <taglist [tags]="article.tagList"></taglist>
-            </div>
+             <a [routerLink]="['/articles', article.slug]">
+               <h4 class="my-4">{{ article.title }}</h4>
+             </a>
+             <p class="my-2">{{ article.description | truncate: 150 }}</p>
+             <div class="tags mt-4 mb-2">
+               <taglist [tags]="article.tagList"></taglist>
+             </div>
           </div>
         </div>
       </div>

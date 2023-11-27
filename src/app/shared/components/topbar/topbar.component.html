@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top" *ngIf="data$ | async as data">
+<nav class="navbar navbar-expand-lg fixed-top" *ngIf="data$ | async as data">
   <div class="container">
     <a class="navbar-brand" [routerLink]="'/'">
       <img src="assets/images/logos/logo.png" alt="logo">
@@ -12,10 +12,13 @@
           <a class="nav-link" aria-current="page" [routerLink]="''" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/blog'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Blog</a>
+          <a class="nav-link" href="#projects" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Unused Link</a>
+          <a class="nav-link" href="#contact" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/blog'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Blog</a>
         </li>
       </ul>
 
@@ -44,6 +47,9 @@
           <a class="nav-link" [routerLink]="'/signup'">Signup</a>
         </li>
         </ng-container>
+        <li class="nav-item">
+
+        </li>
       </ul>
     </div>
   </div>

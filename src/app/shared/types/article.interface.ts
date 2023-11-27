@@ -2,7 +2,7 @@ import {ProfileInterface} from "./profile.interface";
 import {PopularTagType} from "./populartag.interface";
 
 export interface ArticleInterface {
-  thumbnail?: string
+  image?: string
   body: string;
   createdAt: string;
   description: string;

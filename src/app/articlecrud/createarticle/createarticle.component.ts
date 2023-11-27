@@ -22,7 +22,7 @@ export class CreatearticleComponent {
     description: '',
     body: '',
     tagList: [],
-    //thumbnail: '',
+    image: '',
   }
 
   data$ = combineLatest({

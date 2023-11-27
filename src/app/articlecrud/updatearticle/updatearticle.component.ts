@@ -35,7 +35,7 @@ export class UpdatearticleComponent implements OnInit {
         description: article.description,
         body: article.body,
         tagList: article.tagList,
-        //thumbnail: article.thumbnail,
+        image: article.image,
       }
     })
   )

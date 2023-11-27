@@ -34,11 +34,11 @@ export class ArticleformComponent implements OnInit{
   preview: string | undefined;
 
   form = this._formBuilder.nonNullable.group({
+    image: ['', [Validators.required]],
     title: ['', [Validators.required]],
     description: ['', [Validators.required]],
     body: ['', [Validators.required]],
     tagList: '',
-    // thumbnail: '',
   })
 
   config: AngularEditorConfig = {
