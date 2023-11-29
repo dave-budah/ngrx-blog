@@ -9,6 +9,7 @@ import {selectCurrentUser} from "../authentication/store/auth.reducers";
 import {CurrentUserInterface} from "../shared/types/currentuser.interface";
 import {ProfileInterface} from "./types/profile.interface";
 import {FeedComponent} from "../shared/components/feed/feed.component";
+import {authActions} from "../authentication/store/auth.actions";
 
 @Component({
   selector: 'profile',
@@ -56,5 +57,9 @@ export class ProfileComponent implements OnInit {
   getApiUrl(): string {
     const isFavorites = this.router.url.includes('favorites')
     return isFavorites ? `/articles?favorited=${this.slug}` : `/articles?author=${this.slug}`
+  }
+
+  logout() {
+    this.store.dispatch(authActions.logout())
   }
 }

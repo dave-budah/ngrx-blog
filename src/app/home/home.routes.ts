@@ -5,6 +5,6 @@ export const routes: Route[] = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Home'
+    title: 'Selvigtech | Home',
   }
 ]

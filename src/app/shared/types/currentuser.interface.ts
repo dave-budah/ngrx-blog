@@ -4,4 +4,5 @@ export interface CurrentUserInterface {
   username: string;
   bio: string | null;
   image: string | null;
+  role: string | null;
 }

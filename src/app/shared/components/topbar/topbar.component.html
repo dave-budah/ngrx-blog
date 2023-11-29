@@ -33,10 +33,10 @@
             <a class="nav-link" [routerLink]="['/profiles', data.currentUser.username]" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">{{ data.currentUser.username }}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="'/articles/new'"><i class="bi bi-pencil-square" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"> &nbsp;New Post</i></a>
+            <a class="nav-link" *ngIf="data.currentUser.role === 'admin'" [routerLink]="'/articles/new'"><i class="bi bi-pencil-square" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"> &nbsp;New Post</i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="'/settings'"><i class="bi bi-gear-fill" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"> &nbsp;Settings</i></a>
+            <a class="nav-link" *ngIf="data.currentUser.role === 'admin'" [routerLink]="'/settings'"><i class="bi bi-gear-fill" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"> &nbsp;Settings</i></a>
           </li>
         </ng-container>
         <ng-container *ngIf="data.currentUser === null">

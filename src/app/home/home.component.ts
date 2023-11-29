@@ -63,5 +63,6 @@ export class HomeComponent  implements OnInit {
       this.errorMessage = 'There was an error sending your message.';
       console.log(this.errorMessage);
     });
+    this.contactForm.reset();
   }
 }

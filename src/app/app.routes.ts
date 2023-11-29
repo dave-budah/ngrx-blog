@@ -48,5 +48,9 @@ export const appRoutes: Route[] = [
   {
     path: 'profiles/:slug/favorites',
     loadChildren: () => import('src/app/profile/profile.routes').then(m => m.routes)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('src/app/notfound/404.routes').then(m => m.routes)
   }
 ]
