@@ -1,0 +1,23 @@
+<ng-container *ngIf="data$ | async as data">
+    <div class="container" *ngIf="data.project">
+     <div class="row">
+       <div class="col-md-6 mx-auto my-5 py-5">
+         <div class="card projects-card bg-danger">
+           <div class="card-img-top">
+             <img src="{{ data.project.image }}" alt="{{ data.project.title }}">
+           </div>
+           <div class="card-content pt-2">
+             <h4>{{ data.project.description }}</h4>
+             <a [href]="data.project.site" target="_blank" title="Visit site"><span class="bi bi-globe"></span></a>
+             <a [href]="data.project.github" target="_blank" title="Github"><span class="bi bi-github ms-2"></span></a>
+             <ng-container *ngIf="data.isAuthor">
+               <a [routerLink]="['./projects', data.project.slug, 'edit']" target="_blank" title="Github"><span class="bi bi-pencil ms-2"></span></a>
+               <a [routerLink]="['./projects', data.project.slug, 'delete']" target="_blank" title="Github"><span class="bi bi-trash ms-2"></span></a>
+             </ng-container>
+           </div>
+         </div>
+       </div>
+     </div>
+    </div>
+</ng-container>
+

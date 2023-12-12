@@ -5,16 +5,6 @@
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-2 article-form">
           <h3 class="text-center my-4">Write your article</h3>
-<!--        <div class="mb-3">-->
-<!--            <input type="file" id="actual-btn" accept="image/*" formControlName="thumbnail" (change)="onFileSelected($event)" hidden/>-->
-<!--            <label for="actual-btn" id="file-label">Choose File</label>-->
-<!--            <span id="file-chosen">No file chosen</span>-->
-<!--        </div>-->
-
-<!--          <div class="my-2">-->
-<!--            <img [src]="preview" class="preview" *ngIf="preview" alt="preview">-->
-<!--          </div>-->
-<!--        File Upload ends here -->
         <div class="mb-3">
           <label for="image" class="form-label">Image</label>
           <input type="text" class="form-control" id="image" formControlName="image">

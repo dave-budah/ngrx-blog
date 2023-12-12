@@ -145,57 +145,7 @@
 <section class="projects py-5" id="projects">
   <div class="container">
     <h3 class="text-center mb-5">Recent Projects</h3>
-
-    <div class="row">
-      <div class="col-md-6 item hidden">
-        <div class="card projects-card">
-          <div class="card-img-top">
-            <img src="assets/images/a.jpg" alt="">
-          </div>
-          <div class="card-content pt-2">
-            <h4>Lorem ipsum doret</h4>
-            <a [routerLink]="''" title="Visit site"><span class="bi bi-globe"></span></a>
-            <a [routerLink]="''" title="Github"><span class="bi bi-github ms-2"></span></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 item hidden">
-        <div class="card projects-card">
-          <div class="card-img-top">
-          <img src="assets/images/b.jpg" alt="">
-          </div>
-          <div class="card-content pt-2">
-            <h4>Lorem ipsum doret</h4>
-            <a [routerLink]="''" title="Visit site"><span class="bi bi-globe"></span></a>
-            <a [routerLink]="''" title="Github"><span class="bi bi-github ms-2"></span></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 item hidden">
-        <div class="card projects-card">
-          <div class="card-img-top">
-          <img src="assets/images/c.jpg" alt="">
-          </div>
-          <div class="card-content pt-2">
-            <h4>Lorem ipsum doret</h4>
-            <a [routerLink]="''" title="Visit site"><span class="bi bi-globe"></span></a>
-            <a [routerLink]="''" title="Github"><span class="bi bi-github ms-2"></span></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 item hidden">
-        <div class="card projects-card">
-          <div class="card-img-top">
-          <img src="assets/images/d.jpg" alt="">
-          </div>
-          <div class="card-content pt-2">
-            <h4>Lorem ipsum doret</h4>
-            <a [routerLink]="''" title="Visit site"><span class="bi bi-globe ms-2"></span></a>
-            <a [routerLink]="''" title="Github"><span class="bi bi-github ms-2"></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
+      <pr-feed [apiUrl]="apiUrl"></pr-feed>
   </div>
 </section>
 
@@ -232,7 +182,7 @@
         <div class="col-lg-6 my-2 item hidden">
           <h4>Leave a message:</h4>
 
-          <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <form class="contact-form" [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
               <input type="text" formControlName="name" class="form-control bg-transparent" id="name" placeholder="Name" [ngClass]="{error : getControl('name')?.errors && getControl('name')?.touched}">
@@ -265,7 +215,7 @@
               </div>
             </div>
             <div class="my-2">
-              <button class="btn px-4 py-2" type="submit" [disabled]="contactForm.status === 'INVALID'">Submit</button>
+              <button class="btn px-4 py-2" type="submit" [disabled]="!FormData.valid">Submit</button>
             </div>
           </form>
         </div>

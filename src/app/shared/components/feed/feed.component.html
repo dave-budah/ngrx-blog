@@ -21,7 +21,7 @@
               <span class="spacer"></span>
               <span class="date">{{ article.createdAt | date: 'dd MMM YYYY' }}</span>
               <span class="spacer"></span>
-              <reactions [isFavorited]="article.favorited" [articleSlug]="article.slug" [favoritesCount]="article.favoritesCount"></reactions>
+              <reactions [isFavorited]="article.favorited" [articleSlug]="article.slug" [favouriteCount]="article.favouriteCount"></reactions>
             </div>
              <a [routerLink]="['/articles', article.slug]">
                <h4 class="my-4">{{ article.title }}</h4>

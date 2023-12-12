@@ -13,7 +13,7 @@ export class PopulartagService {
   constructor(private http: HttpClient) { }
 
   getPopularTags(): Observable<PopularTagType[]> {
-    const url = environment.apiurl + '/tags'
+    const url = `${environment.apiurl}/tags`
     return this.http.get<GetPopularTagResponseInterface>(url).pipe(map((response) => response.tags))
   }
 }

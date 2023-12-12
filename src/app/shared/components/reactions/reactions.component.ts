@@ -15,7 +15,7 @@ import {addToFavoritesActions} from "./store/reactions.actions";
 })
 export class ReactionsComponent {
   @Input() isFavorited: boolean = false
-  @Input() favoritesCount: number = 0
+  @Input() favouriteCount: number = 0
   @Input() articleSlug: string = ''
 
   constructor(private store: Store) {
@@ -29,9 +29,9 @@ export class ReactionsComponent {
       })
     )
     if (this.isFavorited) {
-      this.favoritesCount = this.favoritesCount - 1
+      this.favouriteCount = this.favouriteCount - 1
     } else {
-      this.favoritesCount = this.favoritesCount + 1
+      this.favouriteCount = this.favouriteCount + 1
     }
     this.isFavorited = !this.isFavorited
   }

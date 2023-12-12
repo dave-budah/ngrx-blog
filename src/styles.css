@@ -175,17 +175,21 @@ main {
 #signup_wrapper {
   height: 460px;
 }
+
 #signup_wrapper form {
   position: relative;
 }
 .formBox .errorBox,
 #signup_wrapper .errorBox {
   position: absolute;
-  top: 6rem;
+  top: 7rem;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: var(--white-color);
+  background: var(--body-bg-color);
   width: 300px;
+}
+#signup_wrapper .errorBox {
+  top: 3.5rem;
 }
 .auth_wrapper:hover {
   box-shadow: rgba(17, 12, 46, 0.15) 0 48px 100px 0;
@@ -523,16 +527,16 @@ nav button.navbar-toggler {
   width: 100%;
   display: inline-block;
   padding: 3px 10px;
-  border-bottom: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border-bottom: 1px solid #8f9bad;
+  color: #8f9bad;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 .feed-toggle-links .feed-link .feed-link-item:hover,
 .feed-toggle-links .feed-link .feed-link-item.active {
-  border-bottom: 1px solid #8f9bad !important;
-  color: #8f9bad !important;
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color) !important;
 }
 /* Blog page */
 .thumbnail {
@@ -768,9 +772,11 @@ nav button.navbar-toggler {
   outline: none;
   box-shadow: none !important;
   border: 1px solid var(--tertiary-color);
+  background: transparent !important;
 }
 .article-form label {
   font-size: var(--fs-400);
+  color: var(--primary-color);
   font-weight: 500;
 }
 .article-form button {

@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm() {
-    console.log('form', this.signInForm.getRawValue())
     const request: LoginRequestInterface = {
       user: this.signInForm.getRawValue(),
     }

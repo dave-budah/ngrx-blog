@@ -13,7 +13,7 @@ const initialState: AuthStateInterface = {
 }
 
 const authFeature = createFeature({
- name: 'signup',
+ name: 'auth',
   reducer: createReducer(
     initialState,
     on(authActions.signup,

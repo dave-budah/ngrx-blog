@@ -7,7 +7,7 @@ import {CurrentUserRequestInterface} from "../../shared/types/currentuserrequest
 
 
 export const authActions = createActionGroup({
-  source: 'signup',
+  source: 'auth',
   events: {
     Signup: props<{ request: SignupRequestInterface}>(),
     'Signup Success': props<{ currentUser: CurrentUserInterface}>(),
