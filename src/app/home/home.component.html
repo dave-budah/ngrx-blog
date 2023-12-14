@@ -156,68 +156,24 @@
 
     <div class="col-lg-8 mx-auto my-5">
       <div class="row">
-        <div class="col-lg-6 my-2 item hidden">
-          <h4>Reach me with any of the bellow:</h4>
+        <div class="col-lg-6 my-2 mx-auto item hidden">
           <ul class="m-0 p-0">
-            <li class="m-0 px-0 py-2">
-              <a href="#" target="_blank" class="contact-link">
+            <li class="m-0 px-0 py-2  item hidden">
+              <a href="mailto:info@selvigtech.com" target="_blank" class="contact-link">
                 <i class="bi bi-envelope"></i>
               </a>
-              <span>info@selvigtech.com</span>
             </li>
-            <li class="m-0 px-0 py-2">
+            <li class="m-0 px-0 py-2  item hidden">
               <a href="https://twitter.com/dave_budah" target="_blank" class="contact-link">
                 <i class="bi bi-twitter-x"></i>
               </a>
-              <span>Dave Budah</span>
             </li>
-            <li class="m-0 px-0 py-2">
+            <li class="m-0 px-0 py-2  item hidden">
               <a href="https://www.linkedin.com/in/dave-budah/" target="_blank" class="contact-link">
                 <i class="bi bi-linkedin"></i>
               </a>
-              <span>Dave Budah</span>
             </li>
           </ul>
-        </div>
-        <div class="col-lg-6 my-2 item hidden">
-          <h4>Leave a message:</h4>
-
-          <form class="contact-form" [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" formControlName="name" class="form-control bg-transparent" id="name" placeholder="Name" [ngClass]="{error : getControl('name')?.errors && getControl('name')?.touched}">
-              <div *ngIf="getControl('name')?.errors && getControl('name')?.touched">
-                <small class="errorMsg" *ngIf="getControl('name')?.errors?.['required']">Name is required</small>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" formControlName="email" class="form-control bg-transparent" id="email" placeholder="Email" [ngClass]="{error : getControl('email')?.errors && getControl('email')?.touched}">
-              <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
-                <small class="errorMsg" *ngIf="getControl('email')?.errors?.['required']">Email is required</small>
-                <small class="text-danger" *ngIf="getControl('email')?.errors?.['maxlength']">Email should be maximum 32 characters long.</small>
-                <small class="errorMsg" *ngIf="getControl('email')?.errors?.['pattern']">Please enter a valid email.</small>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="subject" class="form-label">Subject</label>
-              <input type="text" formControlName="subject" class="form-control bg-transparent" id="subject" placeholder="Subject" [ngClass]="{error : getControl('subject')?.errors && getControl('subject')?.touched}">
-              <div *ngIf="getControl('subject')?.errors && getControl('subject')?.touched">
-                <small class="errorMsg" *ngIf="getControl('subject')?.errors?.['required']">Subject is required</small>
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea class="form-control bg-transparent" formControlName="message" id="message" rows="3" [ngClass]="{error : getControl('message')?.errors && getControl('message')?.touched}"></textarea>
-              <div *ngIf="getControl('message')?.errors && getControl('message')?.touched">
-                <small class="text-danger" *ngIf="getControl('message')?.errors?.['minlength']">Message should beat at least 20 characters long.</small>
-                <small class="errorMsg" *ngIf="getControl('message')?.errors?.['required']">Message is required</small>
-              </div>
-            </div>
-            <div class="my-2">
-              <button class="btn px-4 py-2" type="submit" [disabled]="!FormData.valid">Submit</button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
