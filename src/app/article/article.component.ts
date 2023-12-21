@@ -11,6 +11,7 @@ import {LoadingComponent} from "../shared/components/loading/loading.component";
 import {ErrormessageComponent} from "../shared/components/errormessage/errormessage.component";
 import {TaglistComponent} from "../shared/components/taglist/taglist.component";
 import {StripTagsPipe} from "../shared/types/strip-tags.pipe";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'article',
@@ -43,11 +44,15 @@ export class ArticleComponent implements OnInit {
     article: this.store.select(selectArticleData),
     isAuthor: this.isAuthor$
   })
-  constructor(private store: Store, private route: ActivatedRoute) {
+  constructor(private store: Store, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
     this.store.dispatch(articleActions.getArticle({slug: this.slug}))
+  }
+
+  getSanitizedHTML(html: string): string {
+    return <string>this.sanitizer.bypassSecurityTrustHtml(html);
   }
   deleteArticle() {
     this.store.dispatch(articleActions.deleteArticle({slug: this.slug}))

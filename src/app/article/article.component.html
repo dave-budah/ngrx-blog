@@ -36,10 +36,9 @@
         </div>
         <!--           Thumbnail -->
 
-        <div class="body-text mb-4">
+        <div class="body-text mb-4" [innerHTML]="getSanitizedHTML(data.article.body)">
           <loading *ngIf="data.isLoading"></loading>
           <errormessage *ngIf="data.error"></errormessage>
-          {{ data.article.body | stripTags }}
         </div>
       </div>
     </div>
