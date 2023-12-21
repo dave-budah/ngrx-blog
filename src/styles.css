@@ -421,6 +421,9 @@ nav button.navbar-toggler {
   font-weight: 600;
   color: var(--neutral-color);
 }
+.blog-nugget .detail a h4:hover {
+  color: var(--hover-color) !important;
+}
 .widget {
   border: 1px solid #ebebeb;
   padding: 20px 10px;
@@ -977,7 +980,15 @@ nav button.navbar-toggler {
   display: grid;
   place-content: center;
 }
-
+.about-card .card-img-top-icon img {
+  width: 100%;
+  height: 100%;
+}
+.stack .about-card .card-img-top-icon {
+  padding: 2px;
+  background: transparent !important;
+  border: 1px solid var(--line-color);
+}
 .about-card .card-header {
   border-bottom: 1px solid #102d35;
 }
@@ -1053,6 +1064,27 @@ nav button.navbar-toggler {
 }
 .item:nth-child(5) {
   transition-delay: 1000ms;
+}
+.item:nth-child(6) {
+  transition-delay: 1200ms;
+}
+.item:nth-child(7) {
+  transition-delay: 1400ms;
+}
+.item:nth-child(8) {
+  transition-delay: 1600ms;
+}
+.item:nth-child(9) {
+  transition-delay: 1800ms;
+}
+.item:nth-child(10) {
+  transition-delay: 2000ms;
+}
+.item:nth-child(11) {
+  transition-delay: 2200ms;
+}
+.item:nth-child(12) {
+  transition-delay: 2400ms;
 }
 .projects-card {
   width: 100%;

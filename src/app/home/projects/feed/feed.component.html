@@ -1,19 +1,24 @@
 <ng-container *ngIf="data$ | async as data">
-  <loading *ngIf="data.isLoading"></loading>
-  <errormessage *ngIf="data.error" [message]="data.error">{{ data.error }}</errormessage>
+  <section class="projects py-5" id="projects">
+    <div class="container">
+      <h3 class="text-center mb-5">Recent Projects</h3>
+      <loading *ngIf="data.isLoading"></loading>
+      <errormessage *ngIf="data.error" [message]="data.error">{{ data.error }}</errormessage>
 
-  <div class="row" *ngIf="data.feed">
-    <div class="col-md-6" *ngFor="let project of data.feed.projects">
-      <div class="card projects-card">
-        <div class="card-img-top">
-          <img src="{{ project.image }}" alt="{{ project.title }}">
-        </div>
-        <div class="card-content pt-2">
-          <h4>{{ project.description }}</h4>
-          <a [href]="project.site" target="_blank" title="Visit site"><span class="bi bi-globe"></span></a>
-          <a [href]="project.github" target="_blank" title="Github"><span class="bi bi-github ms-2"></span></a>
+      <div class="row" *ngIf="data.feed">
+        <div class="col-md-6" *ngFor="let project of data.feed.projects">
+          <div class="card projects-card">
+            <div class="card-img-top">
+              <img src="{{ project.image }}" alt="{{ project.title }}">
+            </div>
+            <div class="card-content pt-2">
+              <h4>{{ project.description }}</h4>
+              <a [href]="project.site" target="_blank" title="Visit site"><span class="bi bi-globe"></span></a>
+              <a [href]="project.github" target="_blank" title="Github"><span class="bi bi-github ms-2"></span></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </ng-container>
