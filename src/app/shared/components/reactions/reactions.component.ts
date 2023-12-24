@@ -8,7 +8,6 @@ import {addToFavoritesActions} from "./store/reactions.actions";
   selector: 'reactions',
   standalone: true,
   imports: [CommonModule],
-  providers: [AddtofavoriteService],
   templateUrl: './reactions.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None

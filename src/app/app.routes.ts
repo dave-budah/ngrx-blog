@@ -38,6 +38,10 @@ export const appRoutes: Route[] = [
     loadChildren: () => import('src/app/articlecrud/updatearticle/updatearticle.routes').then(m => m.routes)
   },
   {
+    path: 'projects/new',
+    loadChildren: () => import('src/app/crudproject/createproject.routes').then(m => m.routes)
+  },
+  {
     path: 'projects/:slug',
     loadChildren: () => import('src/app/project/project.routes').then(m => m.routes)
   },

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, Renderer2, ViewChild, ViewEncapsulation} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {Store} from "@ngrx/store";
@@ -22,8 +22,5 @@ export class TopbarComponent {
   }
 
   ngOnInit(): void {
-
   }
-
-  protected readonly console = console;
 }

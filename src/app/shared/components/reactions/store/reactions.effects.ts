@@ -11,7 +11,8 @@ export const addToFavoritesEffect = createEffect((
   return actions$.pipe(
     ofType(addToFavoritesActions.addToFavorites),
     switchMap(({ isFavorited, slug }) => {
-      const article$ = isFavorited ? addtofavoriteService.removeFromFavorites(slug) : addtofavoriteService.addToFavorites(slug)
+      const article$ = isFavorited ? addtofavoriteService.removeFromFavorites(slug) :
+        addtofavoriteService.addToFavorites(slug)
       return article$.pipe(
         map((article: ArticleInterface) => {
           return addToFavoritesActions.addToFavoritesSuccess({article})

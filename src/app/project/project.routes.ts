@@ -1,7 +1,7 @@
 import {Route} from "@angular/router";
 import {ProjectService} from "../shared/services/project.service";
 import {ProjectComponent} from "./project.component";
-import * as projectEffects from "./store/effect"
+import * as projectEffects from "./store/effects"
 import {provideState} from "@ngrx/store";
 import {projectFeatureKey, projectReducer} from "./store/reducer";
 import {provideEffects} from "@ngrx/effects";

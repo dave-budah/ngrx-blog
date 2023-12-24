@@ -357,7 +357,7 @@ nav .container {
   height: 100%;
   object-fit: cover;
 }
-nav .navbar-collapse .auth-column li a{
+nav .navbar-collapse .auth-column li a {
   font-weight: 600;
 }
 nav button.navbar-toggler {
@@ -365,7 +365,9 @@ nav button.navbar-toggler {
   outline: none !important;
   border: none !important;
 }
-
+nav button.navbar-toggler:focus {
+  background: transparent !important;
+}
 .theme-btn {
   z-index: 1024;
   position: fixed;
@@ -636,20 +638,17 @@ nav button.navbar-toggler {
   margin-top: 1rem;
 }
 
-.editor-page #file-chosen{
-  margin-left: 0.3rem;
-  font-family: sans-serif;
-}
-
 .article-form #content button {
   box-shadow: none;
   color: var(--primary-color);
 }
+.article-form textarea,
 .article-form input {
   outline: none;
   box-shadow: none !important;
   border: 1px solid var(--tertiary-color);
   background: transparent !important;
+  resize: none !important;
 }
 .article-form label {
   font-size: var(--fs-400);
@@ -979,6 +978,9 @@ nav button.navbar-toggler {
   background: #102d35;
   display: grid;
   place-content: center;
+}
+.stack .about-card {
+  min-height: 150px;
 }
 .about-card .card-img-top-icon img {
   width: 100%;
@@ -1321,6 +1323,13 @@ li a.contact-link i {
   transition: 0.5s;
   z-index: 1000;
 }
+.blob-content h2 {
+  color: var(--primary-color);
+}
+.blob-content:hover h2,
+.blob-content:hover p {
+  color: #4e84c0;
+}
 @keyframes animate {
   0% {
     transform: rotate(0deg);
@@ -1419,7 +1428,12 @@ li a.contact-link i {
   text-decoration: none;
   color: #388dbc;
 }
-
+.message-box {
+  height: 100svh;
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
 @media only screen and (max-width: 767px) {
   .notfound .notfound-404 {
     width: 110px;

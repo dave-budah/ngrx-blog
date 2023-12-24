@@ -1,24 +1,25 @@
-<nav class="navbar navbar-expand-lg fixed-top" *ngIf="data$ | async as data">
+<ng-container *ngIf="data$ | async as data">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
     <a class="navbar-brand" [routerLink]="'/'">
       <img src="assets/images/logos/logo.png" alt="logo">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" id="navToggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="bi bi-list"></span>
     </button>
     <div class="collapse navbar-collapse d-lg-flex flex-md-row flex-sm-column justify-content-between" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" [routerLink]="''" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Home</a>
+          <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="''" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#projects" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Projects</a>
+          <a class="nav-link" href="#projects" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Projects</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#contact" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Contact</a>
+          <a class="nav-link" href="#contact" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/blog'" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Blog</a>
+          <a class="nav-link" [routerLink]="'/blog'" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}">Blog</a>
         </li>
       </ul>
 
@@ -34,6 +35,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="data.currentUser.role === 'oREVjeQJC4J8TDc1EvxhW0QiVYEBHNac'" [routerLink]="'/articles/new'"><i class="bi bi-pencil-square" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"> &nbsp;New Post</i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="data.currentUser.role === 'oREVjeQJC4J8TDc1EvxhW0QiVYEBHNac'" [routerLink]="'/projects/new'"><i class="bi bi-pencil-square" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"> &nbsp;New Project</i></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" *ngIf="data.currentUser.role === 'oREVjeQJC4J8TDc1EvxhW0QiVYEBHNac'" [routerLink]="'/settings'"><i class="bi bi-gear-fill" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact: true}"> &nbsp;Settings</i></a>
@@ -54,3 +58,4 @@
     </div>
   </div>
 </nav>
+</ng-container>

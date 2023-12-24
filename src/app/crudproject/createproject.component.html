@@ -1,0 +1,8 @@
+<ng-container *ngIf="data$ | async as data">
+  <projectform
+    [initialValues]="initialValues"
+    [isSubmitting]="data.isSubmitting"
+    [errors]="data.backendErrors"
+    (projectSubmit)="onSubmit($event)"
+  ></projectform>
+</ng-container>

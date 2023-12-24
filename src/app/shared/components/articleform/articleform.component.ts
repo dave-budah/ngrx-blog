@@ -59,15 +59,6 @@ export class ArticleformComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    // const actualBtn = document.getElementById('actual-btn');
-    //
-    // const fileChosen = document.getElementById('file-chosen');
-    //
-    // actualBtn!.addEventListener('change', function(){
-    //   // @ts-ignore
-    //   fileChosen!.textContent = this.files[0].name
-    // })
-
     this.initializeForm();
   }
 
@@ -80,7 +71,7 @@ export class ArticleformComponent implements OnInit{
       description: this.initialValues.description,
       body: this.initialValues.body,
       tagList: this.initialValues.tagList.join(' '),
-      //thumbnail: ''
+      image: this.initialValues.image
     })
   }
   onSubmit(): void {
@@ -90,17 +81,6 @@ export class ArticleformComponent implements OnInit{
       tagList: formValue.tagList.split(' '),
     }
     this.articleSubmit.emit(articleFormValues)
-  }
-
-
-  // This method helps us to get the selected Image that we’re going to upload.
-  onFileSelected(event: any) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.preview = reader.result as string;
-    };
-    reader.readAsDataURL(file);
   }
 
 }

@@ -7,5 +7,9 @@ export const projectActions = createActionGroup({
     'Get project': props<{slug: string}>(),
     'Get project success': props<{project: ProjectInterface}>(),
     'Get project failure': emptyProps(),
+
+    'Delete project': props<{slug: string}>(),
+    'Delete project success': emptyProps(),
+    'Delete project failure': emptyProps(),
   }
 })

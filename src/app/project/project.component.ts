@@ -44,5 +44,8 @@ export class ProjectComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(projectActions.getProject({slug: this.slug }))
   }
+  deleteProject(): void {
+    this.store.dispatch(projectActions.deleteProject({slug: this.slug}))
+  }
 
 }

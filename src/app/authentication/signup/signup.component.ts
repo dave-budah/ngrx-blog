@@ -46,7 +46,7 @@ constructor(private _formBuilder: UntypedFormBuilder,
         username     : ['', [Validators.required]],
         email     : ['', [Validators.required, Validators.maxLength(32), Validators.pattern(this.emailRegex)]],
         password  : ['', [Validators.required, Validators.minLength(8)]],
-        role: ['oREVjeQJC4J8TDc1EvxhW0QiVYEBHNac', Validators.required], //This will default to subscriber role in production
+        role: ['oREVjeQJC4J8TDc1EvxhW0QiVYEBHNac', Validators.required], //This should be changed to default to subscriber role in production
         confirmPassword  : ['', Validators.required],
       },
       {

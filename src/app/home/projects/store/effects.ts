@@ -18,7 +18,7 @@ export const getFeedEffect = createEffect(
             return feedActions.getFeedSuccess({feed})
           }),
           catchError(() => {
-            return of(feedActions.getFeedFailure)
+            return of(feedActions.getFeedFailure())
           })
         )
       })
