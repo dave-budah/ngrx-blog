@@ -11,7 +11,6 @@ import {FooterComponent} from "./shared/components/footer/footer.component";
   templateUrl: './app.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-
   standalone: true,
   imports: [RouterOutlet, RouterLink, NgOptimizedImage, TopbarComponent, FooterComponent],
 
@@ -37,9 +36,9 @@ export class AppComponent implements OnInit {
     function loadTheme(theme: string): void {
       const root = document.querySelector(':root') as HTMLElement;
       if (theme === 'light'){
-        themeBtn.innerHTML = `<i class="bi bi-moon-stars"></i>`;
+        themeBtn.innerHTML = `<i class="bi bi-moon-stars-fill"></i>`;
       } else {
-        themeBtn.innerHTML = `<i class="bi bi-brightness-high"></i>`;
+        themeBtn.innerHTML = `<i class="bi bi-brightness-high-fill"></i>`;
       }
 
       root.setAttribute('color-scheme', `${theme}`);
