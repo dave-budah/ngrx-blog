@@ -654,6 +654,12 @@ nav button.navbar-toggler:focus {
   border: 1px solid var(--tertiary-color);
   background: transparent !important;
   resize: none !important;
+  color: var(--tertiary-color) !important;
+}
+.angular-editor-textarea {
+  color: var(--tertiary-color) !important;
+  letter-spacing: 1px !important;
+  font-weight: 400 !important;
 }
 .article-form label {
   font-size: var(--fs-400);
@@ -1449,4 +1455,14 @@ li a.contact-link i {
     padding-right: 15px;
     padding-top: 110px;
   }
+}
+.angular-editor-toolbar {
+  background-color: var(--body-bg-color) !important;
+}
+.angular-editor-toolbar button {
+  background-color: var(--line-color) !important;
+}
+pre {
+  background-color: var(--line-color) !important;
+  padding: 1rem;
 }

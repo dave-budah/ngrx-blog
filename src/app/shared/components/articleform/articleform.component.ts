@@ -15,12 +15,13 @@ import {ErrormsgComponent} from "../errormsg/errormsg.component";
 import {NgxSummernoteModule} from "ngx-summernote";
 import {AngularEditorConfig, AngularEditorModule} from "@kolkov/angular-editor";
 import {HttpClientModule} from "@angular/common/http";
+import {HighlightModule} from "ngx-highlightjs";
 
 
 @Component({
   selector: 'articleform',
   standalone: true,
-  imports: [CommonModule, ErrormsgComponent, ReactiveFormsModule, AngularEditorModule, HttpClientModule],
+  imports: [CommonModule, ErrormsgComponent, ReactiveFormsModule, AngularEditorModule, HttpClientModule, HighlightModule],
   templateUrl: './articleform.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -44,9 +45,9 @@ export class ArticleformComponent implements OnInit{
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
-    height: '15rem',
+    height: '25rem',
     minHeight: '5rem',
-    placeholder: 'Enter text here...',
+    placeholder: 'Write something awesome...',
     translate: 'no',
     outline: false,
     defaultParagraphSeparator: 'p',

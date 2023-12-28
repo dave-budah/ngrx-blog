@@ -19,6 +19,7 @@ import {feedFeatureKey, feedReducer} from "./app/shared/components/feed/store/fe
 import {popularTagsFeatureKey, popularTagsReducer} from "./app/shared/components/populartgs/store/populartags.reducers";
 import {AddtofavoriteService} from "./app/shared/components/reactions/services/addtofavorite.service";
 import {projectFeatureKey, projectReducer} from "./app/home/projects/store/reducer";
+import {HIGHLIGHT_OPTIONS} from "ngx-highlightjs";
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -39,6 +40,13 @@ bootstrapApplication(AppComponent, {
     provideState(projectFeatureKey, projectReducer),
     provideState(feedFeatureKey, feedReducer),
     provideState(popularTagsFeatureKey, popularTagsReducer),
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        fullLibraryLoader: () => import('highlight.js'),
+        themePath: 'assets/styles/solarized-dark.css'
+      }
+    }
   ]
 }
 )
