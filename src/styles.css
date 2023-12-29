@@ -80,6 +80,7 @@
 
 body {
   background: var(--body-bg-color);
+  font-weight: 400;
 }
 ::-webkit-scrollbar{
   width: 8px;
@@ -344,7 +345,7 @@ nav .navbar-collapse .navbar-nav > li > a:hover {
   color: var(--neutral-color);
 }
 nav .container {
-  border-bottom: 2px solid #eee;
+  border-bottom: 1px solid #eee;
   padding-bottom: .4rem;
 }
 .avatar-container {
