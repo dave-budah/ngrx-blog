@@ -998,6 +998,9 @@ nav button.navbar-toggler:focus {
   width: 100%;
   height: 100%;
 }
+.stack .about-card .card-header {
+  border: none;
+}
 .stack .about-card .card-img-top-icon {
   padding: 2px;
   background: transparent !important;
